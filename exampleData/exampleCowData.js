@@ -12,21 +12,21 @@ const exampleCowData = [
   {
     id: 3,
     name: 'Milkshake',
-    description: 'a cold drink made of milk, a sweet flavoring such as fruit or chocolate, and typically ice cream, whisked until it is frothy.'
+    description: 'A cold drink made of milk, a sweet flavoring such as fruit or chocolate, and typically ice cream, whisked until it is frothy.'
   },
   {
     id: 4,
     name: 'Bessie',
-    description: 'a person\'s best or closest friend.'
+    description: 'A person\'s best or closest friend.'
   },
   {
     id: 5,
     name: 'MooDonna',
-    description: 'archaic : lady -- used as a form of respectful address.'
+    description: 'Archaic : lady -- used as a form of respectful address.'
   },
   {
     id: 6,
     name: 'MooLawn',
-    description: 'a legendary Chinese warrior from the Northern and Southern dynasties period (420–589) of Chinese history.'
+    description: 'A legendary Chinese warrior from the Northern and Southern dynasties period (420–589) of Chinese history.'
   }
 ];
