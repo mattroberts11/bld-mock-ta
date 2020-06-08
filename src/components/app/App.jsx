@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import CowList from './CowList';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,13 +11,30 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    fetch('http://localhost:8080/api/cows')
+      .then(response => response.json())
+      .then((jsonData) => {
+        // var cowsObj = jsonData;
+        // console.log(cowsObj);
+        this.setState({cows: jsonData});
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
   render() {
+    // this.getCows();
     return (
-      <div className="app">
-        <header>
-          <h1>Cow List</h1>
-        </header>
-      </div>
+
+        <div className="app container-md">
+          <header>
+            <h1>Cow List</h1>
+          </header>
+          <CowList cows={this.state.cows}/>
+        </div>
+
     )
   }
 }

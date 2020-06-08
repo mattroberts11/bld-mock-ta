@@ -6,6 +6,8 @@ const db = require('./db/db');
 const bodyParser = require('body-parser');
 // app.use(bodyParser.urlencoded({extended: true}));
 
+app.use(cors());
+
 app.use(bodyParser.json());
 
 // get cows
