@@ -24,19 +24,28 @@ app.get('/api/cows', function(req, res){
 })
 
 app.post('/api/cows', (req, res) => {
-  // res.send('Post works!');
-  console.log('req,body= ', req.body.name); // left off here ++++++++++++++++++++++++++++++++++++++++++++
   let newCow = {
     name: req.body.name,
     description: req.body.description
   }
   db.addCow(newCow)
     .then( (data) => {
-      // console.log('Post data= ', data);
       res.status(201).send(data);
     })
     .catch( (err) => {
       res.status(500).send('Error posting data index.js ln39')
+    })
+})
+
+app.delete('/api/cows', (req, res) => {
+  // console.log(req.body.id);
+  let delCow = {"_id": req.body.id};
+  db.deleteCow(delCow)
+    .then((data) => {
+      res.status(201).send(data);
+    })
+    .catch((err) => {
+      res.status(500).send('Something went wrong with delete operation')
     })
 })
 

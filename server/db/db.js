@@ -19,9 +19,8 @@ const getAllCows = () => {
       console.log('Error getting cows', err);
     })
 }
+
 const addCow = (cowObj) => {
-  // create instance of cow to save a new one
-  // console.log('DB cowObj log=',cowObj);
   const newCow = new Cow(cowObj);
   return newCow.save()
     .then(() => {
@@ -32,10 +31,16 @@ const addCow = (cowObj) => {
     })
 }
 
-
-
+const deleteCow = (cowId) => {
+  // let data = {"_id": cowId}
+  return Cow.deleteOne(cowId)
+    .then(() => {
+      return 'Cow deleted';
+    });
+}
 // export functions for use on server
 module.exports = {
   getAllCows,
-  addCow
+  addCow,
+  deleteCow
 }
