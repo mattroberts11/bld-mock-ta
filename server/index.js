@@ -8,6 +8,8 @@ const bp = require('body-parser');
 // import Cow model
 const db = require('./db/db');
 
+// add cors
+app.use(cors());
 // use body parser
 app.use(bp.json());
 app.use(bp.urlencoded({extended: false}))
@@ -28,6 +30,7 @@ app.post('/api/cows', (req, res) => {
     name: req.body.name,
     description: req.body.description
   }
+  // console.log(req.body)
   db.addCow(newCow)
     .then( (data) => {
       res.status(201).send(data);
