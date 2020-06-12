@@ -12,14 +12,24 @@ const Cow = mongoose.model('Cow', CowSchema);
 
 const getAllCows = () => {
   return Cow.find()
+    .then((cows) => {
+      return cows;
+    })
+    .catch((err) => {
+      console.log('Error getting cows', err);
+    })
 }
 const addCow = (cowObj) => {
   // create instance of cow to save a new one
-  console.log(cowObj);
-  let newCow = new Cow(cowObj);
-  newCow.save(function(err){
-    if(err) return handleError(err)
-  })
+  // console.log('DB cowObj log=',cowObj);
+  const newCow = new Cow(cowObj);
+  return newCow.save()
+    .then(() => {
+      return 'Cow created successfully in DB ln 25';
+    })
+    .catch((err) => {
+      console.log('Error adding cow to DB', err);
+    })
 }
 
 

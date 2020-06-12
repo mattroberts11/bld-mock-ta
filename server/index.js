@@ -23,17 +23,20 @@ app.get('/api/cows', function(req, res){
     })
 })
 
-
 app.post('/api/cows', (req, res) => {
   // res.send('Post works!');
-  console.log(req.body); // left off here ++++++++++++++++++++++++++++++++++++++++++++
-  db.addCow(req.body)
+  console.log('req,body= ', req.body.name); // left off here ++++++++++++++++++++++++++++++++++++++++++++
+  let newCow = {
+    name: req.body.name,
+    description: req.body.description
+  }
+  db.addCow(newCow)
     .then( (data) => {
-      console.log('Post data= ', data);
-      res.status(201).send('New cow created!');
+      // console.log('Post data= ', data);
+      res.status(201).send(data);
     })
     .catch( (err) => {
-      res.status(500).send('Error posting data')
+      res.status(500).send('Error posting data index.js ln39')
     })
 })
 
