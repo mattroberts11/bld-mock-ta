@@ -2,7 +2,7 @@ import React from 'react';
 import CowList from './CowList';
 
 
-const Cows = ({cows}) => {
+const Cows = ({cows, click}) => {
   return (
     <div>
       <h2>Cows</h2>
@@ -11,6 +11,7 @@ const Cows = ({cows}) => {
         <CowList
           cow={data}
           key={i}
+          click={click}
         />
         )
       }

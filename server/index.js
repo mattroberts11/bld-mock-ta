@@ -1,5 +1,6 @@
 // web server setup
 const express = require('express');
+const route = require('express').Router();
 const app = express();
 const cors = require('cors');
 const port = 8080;
@@ -23,6 +24,18 @@ app.get('/api/cows', function(req, res){
     .catch((err) => {
       res.status(500).send('Error - Cannot get cows');
     })
+})
+
+route.get('api/cows/:id', function(req,res) {
+  res.send('Get cows id works')
+  console.log('Req params= ', req.params.id);
+  // db.getOneCow(req.params.id)
+  //   .then((data) => {
+  //     res.send(data);
+  //   })
+  //   .catch((err) => {
+  //     res.status(500).send('Error - cannot get ONE cow');
+  //   })
 })
 
 app.post('/api/cows', (req, res) => {

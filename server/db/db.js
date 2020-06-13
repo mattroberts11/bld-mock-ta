@@ -19,6 +19,15 @@ const getAllCows = () => {
       console.log('Error getting cows', err);
     })
 }
+const getOneCow = (id) => {
+  return Cow.findOne({'_id': id})
+    .then( (data) => {
+      return data;
+    })
+    .catch ((err) => {
+      console.log('error get A cow', err)
+    })
+  }
 
 const addCow = (cowObj) => {
   const newCow = new Cow(cowObj);
@@ -42,5 +51,6 @@ const deleteCow = (cowId) => {
 module.exports = {
   getAllCows,
   addCow,
-  deleteCow
+  deleteCow,
+  getOneCow
 }
