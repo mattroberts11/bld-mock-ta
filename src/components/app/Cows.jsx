@@ -5,8 +5,8 @@ import CowList from './CowList';
 const Cows = ({cows, click}) => {
   return (
     <div>
-      <h2>Cows</h2>
-      <ul>
+
+      <ul className="list-group">
       {cows.map( (data, i) =>
         <CowList
           cow={data}

@@ -12,5 +12,18 @@ code {
     monospace;
 }
 
-/* .showCows{display: none;}
-.showCows:hover{cursor: pointer;} */
+ .showCows{
+   border: 1px solid rgba(0,0,0,.125);
+   margin-bottom: 10px;
+   padding: 10px 25px;
+ }
+/*.showCows:hover{cursor: pointer;} */
+
+.addACow {
+  padding: 30px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0,0,0,.125);
+  background-color: rgba(0,0,0,.125);
+}
+li.list-group-item button {float: right;}
+

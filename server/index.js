@@ -26,18 +26,6 @@ app.get('/api/cows', function(req, res){
     })
 })
 
-route.get('api/cows/:id', function(req,res) {
-  res.send('Get cows id works')
-  console.log('Req params= ', req.params.id);
-  // db.getOneCow(req.params.id)
-  //   .then((data) => {
-  //     res.send(data);
-  //   })
-  //   .catch((err) => {
-  //     res.status(500).send('Error - cannot get ONE cow');
-  //   })
-})
-
 app.post('/api/cows', (req, res) => {
   let newCow = {
     name: req.body.name,
@@ -53,10 +41,10 @@ app.post('/api/cows', (req, res) => {
     })
 })
 
-app.delete('/api/cows', (req, res) => {
+app.delete('/api/cows/:id', (req, res) => {
   // console.log(req.body.id);
-  let delCow = {"_id": req.body.id};
-  db.deleteCow(delCow)
+  // let delCow = {"_id": req.body.id};
+  db.deleteCow(req.params.id)
     .then((data) => {
       res.status(201).send(data);
     })
@@ -64,5 +52,9 @@ app.delete('/api/cows', (req, res) => {
       res.status(500).send('Something went wrong with delete operation')
     })
 })
+
+// app.put('/api/cows:id', (req, res) => {
+//   db.updateCow
+// })
 
 app.listen(port, () => console.log(`Cow Server is running on port ${port}`));

@@ -19,15 +19,6 @@ const getAllCows = () => {
       console.log('Error getting cows', err);
     })
 }
-const getOneCow = (id) => {
-  return Cow.findOne({'_id': id})
-    .then( (data) => {
-      return data;
-    })
-    .catch ((err) => {
-      console.log('error get A cow', err)
-    })
-  }
 
 const addCow = (cowObj) => {
   const newCow = new Cow(cowObj);
@@ -42,15 +33,29 @@ const addCow = (cowObj) => {
 
 const deleteCow = (cowId) => {
   // let data = {"_id": cowId}
-  return Cow.deleteOne(cowId)
-    .then(() => {
-      return 'Cow deleted';
-    });
-}
+  return Cow.deleteOne({_id: cowId}).then(res => res)
+
+    // .then(() => {
+    //   return 'Cow deleted';
+    // });
+};
+const updateCow = (cowObj) => {
+  return Cow.updateOne({_id: cowId._id}, cowObj)
+};
 // export functions for use on server
 module.exports = {
   getAllCows,
   addCow,
   deleteCow,
-  getOneCow
+  updateCow
 }
+
+// const getOneCow = (id) => {
+//   return Cow.findOne({'_id': id})
+//     .then( (data) => {
+//       return data;
+//     })
+//     .catch ((err) => {
+//       console.log('error get A cow', err)
+//     })
+//   }
